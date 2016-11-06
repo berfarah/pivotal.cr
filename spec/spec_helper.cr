@@ -7,11 +7,22 @@ def json_fixture(relative_path)
   File.read(path)
 end
 
+def integration_test?
+  ENV["INTEGRATION"]?
+end
+
 struct Secrets
   def self.load : self
     @@secrets ||= begin
-      path = File.expand_path("../fixtures/secrets.yml", __FILE__)
       Secrets.from_yaml(File.read(path))
+    end
+  end
+
+  private def self.path
+    if integration_test?
+      File.expand_path("../fixtures/secrets.yml", __FILE__)
+    else
+      File.expand_path("../fixtures/secrets.yml.example", __FILE__)
     end
   end
 
