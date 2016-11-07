@@ -1,4 +1,4 @@
-require "../spec_helper"
+require "../../spec_helper"
 project_json = json_fixture("story")
 
 describe Pivotal::Resource::Story do
