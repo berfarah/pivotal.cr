@@ -10,8 +10,9 @@ describe Pivotal do
 
       projects = Pivotal::Resource::Project.all
       project = projects.first
-
       story = project.stories.first
+
+      foo_story = Pivotal::Resource::Story.all(project.id, with_label: "foo")
     end
   end
 end

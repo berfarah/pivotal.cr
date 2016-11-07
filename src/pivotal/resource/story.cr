@@ -6,17 +6,20 @@ module Pivotal
     class Story
       def self.find(id : Int32?, project_id)
         response = Client.request(
-          method: "GET", path: "projects/#{project_id}/stories/#{id}",
+          method: "GET",
+          path: "projects/#{project_id}/stories/#{id}",
         )
         self.from_json(response.body)
       end
 
-      def self.all(project_id : Int32?)
+      def self.all(project_id : Int32?, **params)
         return Array(self).new if project_id.nil?
+
+        query_string = Params.new(**params).to_s
 
         response = Client.request(
           method: "GET",
-          path: "/projects/#{project_id}/stories"
+          path: "projects/#{project_id}/stories#{query_string}",
         )
 
         Array(self).from_json(response.body)
