@@ -26,14 +26,13 @@ module Pivotal
     end
 
     def self.request(method, path, headers = nil, body = nil) : HTTP::Client::Response
-      full_path = build_path(path)
-      # full_headers = headers ? default_headers : default_headers.merge!(headers)
       request = HTTP::Request.new(
         method: method,
-        resource: full_path,
-        headers: default_headers,
+        resource: build_path(path),
+        headers: build_headers(headers),
         body: body,
       )
+
       fail_loudly!(connection.exec(request))
     end
 
@@ -43,6 +42,10 @@ module Pivotal
 
     private def self.connection
       @@connection ||= HTTP::Client.new(host: HOST, tls: true)
+    end
+
+    private def self.build_headers(headers)
+      headers ? default_headers.merge!(headers) : default_headers
     end
 
     private def self.default_headers
