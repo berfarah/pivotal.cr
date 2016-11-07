@@ -1,26 +1,9 @@
 require "json"
+require "./story/*"
 
 module Pivotal
   module Resource
     class Story
-      enum Type
-        Feature
-        Bug
-        Chore
-        Release
-      end
-
-      enum State
-        Planned
-        Unscheduled
-        Unstarted
-        Started
-        Finished
-        Rejected
-        Delivered
-        Accepted
-      end
-
       def self.find(id : Int32?, project_id)
         response = Client.request(
           method: "GET", path: "projects/#{project_id}/stories/#{id}",
