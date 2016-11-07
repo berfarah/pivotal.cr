@@ -31,7 +31,7 @@ module Pivotal
       end
 
       JSON.mapping(
-        id: {type: Int16 | Int32, default: -1, nilable: true},
+        id: {type: Int32, default: -1, nilable: true},
         name: {type: String, nilable: true},
         version: {type: Int16 | Int32, default: 1, nilable: true},
         iteration_length: {type: Int16 | Int32, default: 1, nilable: true},
@@ -49,7 +49,7 @@ module Pivotal
         public: {type: Bool, default: false, nilable: true},
         atom_enabled: {type: Bool, default: true, nilable: true},
         current_iteration_number: {type: Int16 | Int32, default: 1, nilable: true},
-        account_id: {type: Int16 | Int32, default: -1, nilable: true},
+        account_id: {type: Int32, default: -1, nilable: true},
         created_at: {type: Time, converter: Converters::Time, nilable: true},
         updated_at: {type: Time, converter: Converters::Time, nilable: true},
       )
