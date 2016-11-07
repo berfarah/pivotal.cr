@@ -1,8 +1,9 @@
 require "../spec_helper"
 project_json = json_fixture("project")
 
-subject = Pivotal::Resource::Project
-describe subject do
+describe Pivotal::Resource::Project do
+  subject = Pivotal::Resource::Project
+
   assert do
     project = subject.from_json(project_json)
     project.id.should eq(99)

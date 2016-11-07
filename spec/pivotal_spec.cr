@@ -7,6 +7,11 @@ describe Pivotal do
 
       response = Pivotal::Resource::Me.get
       response.api_token.should eq(Secrets.load.token)
+
+      projects = Pivotal::Resource::Project.all
+      project = projects.first
+
+      story = project.stories.first
     end
   end
 end
