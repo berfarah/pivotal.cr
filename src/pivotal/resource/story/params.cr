@@ -32,7 +32,7 @@ module Pivotal
 
         private def build_query_string
           query_hash.reduce("?") do |query_string, (key, value)|
-            next query_string unless value
+            next query_string if value.nil? || value == ""
             value = isotime(value) if value.is_a?(Time)
             "#{query_string}#{key}=#{value}&"
           end.chomp("&")
@@ -43,8 +43,8 @@ module Pivotal
         private def query_hash
           {
             "with_label" => @with_label,
-            "with_story_type" => @with_story_type,
-            "with_state" => @with_state,
+            "with_story_type" => @with_story_type.to_s.underscore,
+            "with_state" => @with_state.to_s.underscore,
             "after_story_id" => @after_story_id,
             "before_story_id" => @before_story_id,
             "accepted_before" => @accepted_before,

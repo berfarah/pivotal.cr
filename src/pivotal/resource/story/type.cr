@@ -6,6 +6,10 @@ module Pivotal
         Bug
         Chore
         Release
+
+        def to_json
+          to_s.underscore
+        end
       end
     end
   end
