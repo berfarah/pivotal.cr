@@ -1,4 +1,6 @@
 require "json"
+require "./story"
+require "./iteration"
 
 module Pivotal
   module Resource
@@ -19,11 +21,15 @@ module Pivotal
           method: "GET",
           path: "/projects",
         )
-        Array(Project).from_json(response.body)
+        Array(self).from_json(response.body)
       end
 
-      def stories
-        Story.all(project_id: id)
+      def stories(**params)
+        Story.all(id, **params)
+      end
+
+      def iterations(**params)
+        Iteration.all(id, **params)
       end
 
       def get

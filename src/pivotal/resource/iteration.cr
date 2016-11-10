@@ -1,5 +1,6 @@
 require "json"
 require "./story"
+require "./iteration/*"
 
 module Pivotal
   module Resource
