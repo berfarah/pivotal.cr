@@ -10,9 +10,11 @@ describe Pivotal do
 
       projects = Pivotal::Resource::Project.all
       project = projects.first
-      story = project.stories.first
+      stories = project.stories(with_state: Pivotal::Resource::Story::State::Unstarted)
+      story = stories.first?
 
-      foo_story = Pivotal::Resource::Story.all(project.id, with_label: "foo")
+      iterations = project.iterations(scope: Pivotal::Resource::Iteration::State::Backlog)
+      iteration = iterations.first?
     end
   end
 end

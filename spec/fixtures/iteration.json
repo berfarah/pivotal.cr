@@ -1,0 +1,57 @@
+{
+  "finish": "2016-11-08T12:00:10Z",
+  "kind": "iteration",
+  "length": 1,
+  "number": 15,
+  "project_id": 99,
+  "start": "2016-11-08T12:00:05Z",
+  "stories": [
+    {
+      "accepted_at": "2016-11-08T12:00:05Z",
+      "created_at": "2016-11-08T12:00:05Z",
+      "current_state": "accepted",
+      "estimate": 1,
+      "id": 558,
+      "kind": "story",
+      "labels": [],
+      "name": "Contact Lando",
+      "owner_ids": [],
+      "project_id": 99,
+      "requested_by_id": 101,
+      "story_type": "feature",
+      "updated_at": "2016-11-08T12:00:05Z",
+      "url": "http://localhost/story/show/558"
+    },
+    {
+      "accepted_at": "2016-11-08T12:00:05Z",
+      "created_at": "2016-11-08T12:00:05Z",
+      "current_state": "accepted",
+      "description": "Dantooine is too remote to make an effective demonstration.",
+      "estimate": 1,
+      "id": 560,
+      "kind": "story",
+      "labels": [
+        {
+          "created_at": "2016-11-08T12:00:05Z",
+          "id": 2008,
+          "kind": "label",
+          "name": "rebel bases",
+          "project_id": 99,
+          "updated_at": "2016-11-08T12:00:05Z"
+        }
+      ],
+      "name": "Destroy Alderaan",
+      "owned_by_id": 101,
+      "owner_ids": [
+        101,
+        105
+      ],
+      "project_id": 99,
+      "requested_by_id": 102,
+      "story_type": "feature",
+      "updated_at": "2016-11-08T12:00:05Z",
+      "url": "http://localhost/story/show/560"
+    }
+  ],
+  "team_strength": 1
+}
