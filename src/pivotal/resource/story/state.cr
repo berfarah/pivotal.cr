@@ -10,6 +10,10 @@ module Pivotal
         Rejected
         Delivered
         Accepted
+
+        def to_json
+          to_s.underscore
+        end
       end
     end
   end
