@@ -32,6 +32,10 @@ module Pivotal
         Iteration.all(id, **params)
       end
 
+      def memberships
+        ProjectMembership.all(id)
+      end
+
       def get
         self.class.find(id)
       end

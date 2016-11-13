@@ -1,8 +1,8 @@
 require "./spec_helper"
 
 describe Pivotal do
-  it "works" do
-    if integration_test?
+  if integration_test?
+    it "works" do
       Pivotal::Client.token = Secrets.load.token
 
       response = Pivotal::Resource::Me.get
@@ -10,6 +10,10 @@ describe Pivotal do
 
       projects = Pivotal::Resource::Project.all
       project = projects.first
+
+      memberships = project.memberships
+      membership = memberships.first
+
       stories = project.stories(with_state: Pivotal::Resource::Story::State::Unstarted)
       story = stories.first?
 
